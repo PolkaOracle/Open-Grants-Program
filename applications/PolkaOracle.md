@@ -6,105 +6,223 @@
 
 ## Project Description
 
-PolkaOracle is set to build a data infrastructure by applying Off-chain Worker under Polkadot/Substrate Framework. The mission of PolkaOracle is to provide real-time, transparent, reliable and efficient on-chain/off-chain market statistics and social data sources. PolkaOracle will be an important building block in the whole Substrate ecology. PolkaOracle is aiming to build a flexible, self-evolving oracle network based on Polkadot, providing applications or smart contracts with customized real-time on-chain data feeding services. PolkaOracle will adopt the Off-chain Workers architecture of the Substrate 2.0 to build an on-chain Oracle system and is designed to be the parachain/parathread connecting to the Polkadot universe.
+PolkaOracle is a scalable, cross-chain, decentralized data transmission platform. Different from other alike oracle projects only providing off-chain data, PolkaOracle can also provide on-chain data feeding. Coupled with its cross-chain technologies, PolkaOracle can integrate on-chain data from other Blockchains into Polkadot ecology for other platforms to use, acting as a pivotal support for the data economics of the entire Polkadot ecology. Furthermore, PolkaOracle also has sophisticated community construction plans as support to Web3.0 applications and development of Polkadot ecology. PolkaOracle can not only push the massive adoption of Blockchain technologies in FinTech, but also can help realizing the in-depth transmission of data for all walks of mankind.
 
-PolkaOracle is to build a decentralized Oracle system with advanced technologies. The Off-chain Worker for PolkaOracle will allow execution of expensive, long-running and private tasks such as the Computation-based Data Verification, the Web requests and the random number generation, etc., providing the security, efficiency and randomness of the data feed.
+## Polkadot ecology benefits
+
+Based on substrate implementation, PolkaOracle is strongly scalable. It uses Off-chain Worker to interact with on-chain data. With the Polkadot based features and its cross-chain interoperability, it provides safe, reliable and efficient data sources and data analysis, maximizing the benefits of data users and Dapp builders in the true sense. PolkaOracle provides continuous vitality to the Polkadot ecology starting from the liquidity of the underlying data.
+
+## Oracle overview
+
+In Blockchain, Oracle is an agent who helps the blockchain to communicate with multiple external sources, providing accurate and reliable information for on-chain smart contracts. Oracle is not just an off-chain data source itself, but a middleware that queries, validates, and forwards external information, including market data (such as price information), event information (such as real time flight information), or other data sources as measured by sensors. In addition, some Oracles are even capable of sending on-chain information back to external sources. Therefore, Oracle plays an important role during the interaction between the blockchain and the real world.
 
 ## Project Details
 
-### The Technology Stack
+Substrate offers an excellent framework and development kit that comes in handy:
 
-Request: Data requester, enabling the calls of PolkaOracle sequences in any way
+- The emergence of Substrate has lowered the barrier of blockchain development and shortened the development cycle, enabling developers to concentrate on their commercial implementation. On this basis, PolkaOracle, more professional and detailed in this field, is different from traditional blockchain development, focusing on the secure implementation of data flow.
 
-DW: Data warehouse, distributed data repository, stores historical queries, verifications, etc., which can be read by any data requester
+- Offchainworker can help Oracle to achieve the core functions like excellent data request, acquisition, transmission, but OCW still relies on manual request implementation in voting. PolkaOracle will provide a request library that integrates various functions like OCW and the developer’s DAPP, enabling an interaction of intelligence and convenience between blockchain and the external data.
 
-Miner: oracle Node processing requests from off-chain data sources
+- In addition to OCW, Substrate also provides a very comprehensive range of different blockchain function pallets. PolkaOracle will expand many custom pallets based on its basic function pallet, which is different from the high transaction fee and low scalability of Ethereum, in this regard, the clear development and cross-chain operability provided by Polkadot provide a better solution for the entire blockchain ecosystem.
 
-Arbitrator: Verify data integrity and timeliness provided by oracle Node
+## Project structure
 
-Validator: Built on the network established by Substrate, allows oracle node to broadcast proofs, supports the validity of Arbitrator mining values
+Based on the points and resources above, the PolkaOracle team has integrated a very advanced oracle project plan:
 
-### Technology Architecture
+### PolkaOracle provides advanced distributed data transfer protocols
 
-PolkaOracle is aiming to build a flexible, self-evolving oracle network based on Polkadot, providing applications or smart contracts with customized real-time on-chain data feeding services. PolkaOracle will adopt the Off-chain Workers architecture of the Substrate 2.0 to build an on-chain oracle system and is designed to be the parachain/parathread connecting to the Polkadot universe.
+Off-chain Worker is a pallet of Substrate 2.0, which allows developers to request safely integrate external data into the blockchain application through RPC or http, websocket request. Data can be transmitted by sending signed transactions to the chain, non-signed transactions extrinsic, or read OCW’s local storage via API, Based on Substrate’s framework, PolkaOracle offers advanced distributed data transfer protocol on the basis of OCW and also complement with each other.Polka Oracle offers a variety of API interface to get the third party off-chain data, to conduct a preliminary screening, comparing and filtering data, ensure the truthfulness, accuracy and real-time data, providing a reliable source of data for the user, all sorts of DAPP or external analysis tools, to implement low cost function of the commercialization of the environment, future customize special parsing API service for advanced users will also be achievable.
 
 <p align="center">
-  <img src="https://lh3.googleusercontent.com/8BKR3VZBcEsfvK93pxm86W7OBMPRY-qGCAXks3zT4x8j2WU7YtKl1TFHJO7-OAYQEUm88UUoGcym_b3BJx-kVvbVHWjc1lV4JYYhFhHANRmuFthCUwOcVemI6PFQOupOZgV19hA_"><br>
-  <b>The architecture of off-chain worker (Data source: Parity)</b>
+  <img src="https://raw.githubusercontent.com/PolkaOracle/images/master/polkaoracle_workflow.jpg"><br>
+  <b>Brief demo of PolkaOracle workflow</b>
 </p>
 
-PolkaOracle will be built on the groundbreaking technology with Substrate and surrounding tech stack to leverage the most cutting-edge features to develop a community-driven self-evolving oracle system. As demonstrated below, the 4-layer architecture of PolkaOracle consists of:
+1. When a user initiates a data request, the OCW in the PolkaOracle node will request a third-party verifiable data API (such as the Web Site API) via RPC or http,websocket, or read the local OCW database to obtain the raw data via Substrate's API. After basic screening, comparison and preliminary verification of the data by the node network, the data will be submitted to the trading pool through signed transaction or non-signed transaction (logical verification).
 
-![img](https://lh5.googleusercontent.com/xG9zR8Vm-_c_mvfr3E0rKvqvmKnaWOs8cMT_A4U2jNBd-2T0vuKB7ccU68L4qSt85RpBeKNWpZyWgG4MCENssD4NOw4ffvSf2GYC3FLIPhDQN_fL54y-enhzvaL70AiiGZEL4pP1)
+2. Miners pack the transaction data in the trading pool and submit it to the on-chain data storage. All the transaction data submitted will be published on-chain, and then the community users will conduct a referendum to get the final confirmed transaction data and return it to the chain, and the other candidate data will become invalid.
 
-- **Data Source Layer**
+3. If the data submitted by the staking node is incorrect or tampered with, the user can initiate a referendum on prosecution. If the voting result agrees to sanctions, the node submitting the data will be punished with SLASH. The confiscated staking assets will be equally rewarded to network nodes that find data errors.
 
-    The Data Source Layer is the bottom layer of the entire oracle system. It is mainly responsible for obtaining third-party off-chain data through various API interfaces with preliminary screening, comparison and filtering of the data to ensure the authenticity, accuracy and real-time of the data.
+4. The data submitted to the chain will be confirmed by the whole blockchain. If it is the node of the chain, it will directly read the data on-chain by initiating extrinsics or calling smart contract. If it is other parachain or parathread on Polkadot, it will read the data through XCMP, if it is a heterogeneous chain or an application will request on-chain data through RPC.
 
-- **Off-chain Workers**
+5. For application users, they can simplify and speed up data transfer process by deploying smart contracts and voting to be added to the smart contract list by the community.
 
-    Off-chain Workers is a new feature in Substrate 2.0, allowing developers to integrate data safely and securely onto the blockchain applications. The Off-chain Worker for PolkaOracle will allow execution of expensive, long-running and private tasks such as the Computation-based Data Verification, the Web requests and the random number generation, etc., providing the security, efficiency and randomness of the data feed.
+### PolkaOracle provides a highly compatible contract platform
 
-- **On-chain Infrastructure**
+Thanks to the rapid development of Substrate, PolkaOracle integrates the pallet_evm, pallet_ethereum that are compatible with Ethereum smart contracts and Substrate-based smart contract development platform Ink. Users can customize the data structure they need through the contract components, and even deploy all the logic code in our smart contract module to maximize the use of various data we provide.
 
-    The On-chain Infrastructure is responsible for the fully-deterministic and transparent on-chain logic which is processed by the entire network with a slower speed. The on-chain infrastructure will ensure the security, fairness, transparency and finality of the entire network. 
+![img](https://raw.githubusercontent.com/PolkaOracle/images/master/polkaoracle_contract.jpg)
 
-- **Cross-chain Application Layer**
+### The main Pallet design and implementation of PolkaOracle
 
-    The Cross-chain Application Layer is the uppermost layer of the entire system. It mainly provides various general and customized data interfaces based on cross-chain technology for various applications that require oracle data services. In addition, this layer will also provide public tools such as user-defined oracle data calling templates and public data display panels.
+![img](https://raw.githubusercontent.com/PolkaOracle/images/master/polkaoracle_pallet.jpg)
 
-### Workflow of Data Request
+The main pallet mainly defines the off-chain data request and data transmission protocol through the OCW. The main functions are stated as follows
 
-![img](https://lh4.googleusercontent.com/iS4GhjSd973sQiTv1kpgyQ-atQrn_aWGJ_ZEMeHGBFVj6u7ZPHXpsi0A-kLWqW4-fNAKFgNRgOG34WUpEa7ximnWDsQa7k6LF3YW0H0NYipgoiBg3ZIJIogmQMW_WFQRfrMVHGFz)
+1. `OffchainHttpRequestData`
 
-A concise demonstration of PolkaOracle's workflow is as follows：
+    `Function`：Through OCW, HTTP is used to communicate with the third-party API and obtain the data, then JSON parsing is performed, and the required data is obtained by deserializing the JSON string into the structure
 
-1\) When the user initiates a data request, the substrate network node will obtain the original data through a third-party verifiable data API such as a website API. After basic screening, comparison and preliminary verification of the node network, the raw data will be submitted to the off-chain worker layer for further data verification.
+    `Params`: `http url,requeset status,time out`
+    `Return`: `DataBuffer`
 
-2\) The off-chain worker for verification will randomly select network nodes through the VRF algorithm for off-chain calculation and verification, and then comprehensively compare the verification results. If the verification proves that the submitted data is wrong or tampered, the node submitting the data will be punished by slash. The confiscated mortgage assets will be equally rewarded to network nodes that find the data errors.
+2. `InputOrGetOffchainStorage`
 
-3\) The data verified by the off-chain worker will be confirmed by the entire blockchain, then the data will be transmitted in real time to the application that initiated the data request through cross-chain interoperability technology.
+    `Function`：Input externally obtained data to OCW local database or retrieve required data from it
+    `Params`: `InputOrGetFlag,Option<DataBuffer>`
+    `Return`: `Result<DataBuffer,Error<T>>`
 
-4\) For application users, they can simplify the data feeding process and increase the data transmission speed by deploying sub-contracts and being added to the list of Sub-contract by the community through voting.
+3. `SendTransactionToChain`
 
-## Runtime Modules/Chains
+    `Function`: OCW uses four methods: signed transaction, unsigned transaction, unsigned transaction with any account signed payload, unsigned transaction with all account signed payload, and sends the unsigned data to the chain after logical verification
+    `Params`: `OffchainAppcrypto,Signature,Option<TransactionSource>(unsignedTransaction),BlockNumber`
+    `Return`: `Result<(),Error<T>>`
 
-### Applies to
+![img](https://raw.githubusercontent.com/PolkaOracle/images/master/polkaoracle_parachain.jpg)
 
-- Building/extending a Substrate pallet
-    
-    - parity-scale-codec
-    - parking_lot
-    - alt_serde
-    - serde_json
-    - frame-support
-    - frame-system
-    - sp-core
-    - sp-io
-    - sp-runtime
-    - sp-std
+PolkaOracle is linked into the Polkadot ecological network as a parachain and shares the basic consensus of Polkadot. Anyone can build a multi-node Oracle network by deploying and running the PolkaOracle Collector node to provide on-chain/off-chain data with built-in interoperability.
 
-### Requirements
+Other platforms on Polkadot ecosystem can access our data through the XCMP protocol.
 
-- List the publicly exposed methods
+### PolkaOracle data analysis layer
 
-    - `pub fn submit_number_signed(origin, number: u64) -> DispatchResult;`
+![img](https://raw.githubusercontent.com/PolkaOracle/images/master/polkaoracle_analytics.jpg)
 
-    - `pub fn submit_number_unsigned(origin, number: u64) -> DispatchResult;`
+The PolkaOracle data analysis tool will be used as an independent on-chain custom pallet, which can be called or skipped. Various targeted data processing, algorithm calculations, result conversion operations can be customized according to requirements, and useful data can be selected from the huge amount of data. Data will be transmitted on-chain after verification.
 
-    - `pub fn submit_number_unsigned_with_signed_payload(origin, payload: Payload<T::Public>,_signature: T::Signature) -> DispatchResult;`
+### Cross-chain
 
-    - `fn offchain_worker(block_number: T::BlockNumber);`
+![img](https://raw.githubusercontent.com/PolkaOracle/images/master/polkaoracle_crosschain.jpg)
 
-- Runtime Storage
+When polkaOracle transmits data with heterogeneous chains, it needs to initiate RPC via OCW to request to read data on other chains
 
-    ```rust
-    decl_storage! {
-        trait Store for Module<T: Trait> as Example {
-            Numbers get(fn numbers): VecDeque<u64>;
-        }
-    }
-    ```
+PolkaOracle node is responsible for the blockchain, scheduling and balancing other external services and has some built-in sub-tasks, performing rpc or web requests, JSON parsing, and data transmissions between heterogeneous chains (BTC, ETH, EOS). Submit cross-chain data to the PolkaOracle network through OCW.
+
+Subtasks can be defined by creating adapters, which are open-sourced external services with minimal Rest API. Programs in any programming language can be implemented simply by adding a small intermediate API in front of the program.
+
+### Data exchange
+
+![img](https://raw.githubusercontent.com/PolkaOracle/images/master/polkaoracle_dateexchange.jpg)
+
+Data exchange enables the on-chain data which confirmed by the screening referendum in Polka Oracle network to be traded,  and the data needed by DAPP or other applications can be determined quickly. The on-chain node or the user can initiate a proposal and vote if the requested on-chain data is void. After voting, if the proposal is passed, the new pledge node will collect the data and send it to the chain for a new round of referendum confirmation. Finally, the user will make a second RPC request to read the required data.
+
+The data consumer interacts with the request contract and then selects the most appropriate result data.
+
+If the data consumer does not locate a suitable result, the user can also submit the data to the chain by joining Polka Oracle collectors, so as to provide it to the data consumer. Users who submit data have the opportunity to obtain token rewards, or they can apply to distribute token rewards to data feeders.
+
+### PolkaOrcale provides a mature cross-chain prediction platform
+
+PolkaOracle, a decentralized prediction platform of cross-chain and community governance, is more decentralized and cost-effective than traditional platforms. The reputation system based on NFT identity authentication not only provides users with more reliable, comprehensive and effective reference, but also guarantees the efficiency, security and reward-punishment.
+
+### PolkaOracle Token
+
+POT is the native token in Polka Oracle network, which is used to pay transaction fees and data feedback services to data providers (bottom nodes), as well as to pay for deposits of any on-chain application. In addition, POT holders will be able to vote on proposals from the community and even decide how the ecosystem fund will be used in the PolkaOracle.
+
+PolkaOracle will eventually combine the above functions and be proactive in the Polka ecosystem as a Parachain of Polkadot. In addition, PolkaOracle will make the CallPallet and API interface publicly accessible, so that other Parachains can join the data flow ecology of PolkaOracle by connecting to PolkaOracle CallPallet. PolkaOracle not only has a breakthrough in the technical field, but also has its own achievements in application scenarios because the team firmly belives that the technology is inseparable from the user group.
+
+## The main utilities of POT are as follows
+
+### Governance
+
+Only community members holding POT have the right to participate in the governance of the entire Oracle network, including voting on whether to add a subcontract or system upgrade proposal. In addition, the PolkaOracle can also initiate community proposals to change the entire network, but it must obtain the consent of more than one third of the network nodes.
+
+### Payment
+
+Pot is the only payment medium and value unit in the whole network. The data demander needs to pay the POT to the data provider and the verification node when initiating the data request.
+
+### Deposit
+
+Pot is also the only collateral asset in the whole network. As long as the community members ensure enough pot tokens to meet the hardware requirements of node operation, they can freely join the whole Oracle network and participate in the tasks of data collection, data verification or block packing in the network.
+
+## Polka Oracle application scenarios
+
+Compared with other oracles such as chainlink
+
+1. More decentralized: pledge a certain amount of platform token to become an authentication node, which does not need to be approved by the official, and multiple Oracle machines will also avoid the adverse effects of single / centralized Oracle machine being attacked and bribed;
+
+2. More cost-effective: projects with authentication node qualification consume less platform token when calling oracle;
+
+3. Reputation system based on NFT identity authentication: authentication node has innovative NFT identity token. It can not only effectively prevent witch attacks, but also keep records of the service logs, adoption probability, misconducts and other records of each node on NFT to provide more reliable, comprehensive and effective reference for users;
+
+4. Balanced quotation system combining efficiency, security and reward-punishment scheme: the data provided by the node needs to pass the basic data screening firstly to eliminate abnormal items. Secondly, the data will accept the support or opposition of community users in a short time. Users can use the governance token to participate in the voting. After voting, the data can be reported in a short time. Whistleblowers need to pledge a token to prosecute, long time after the prosecution of the whole network referendum, after successful prosecution, the whistleblower can get the evil node's pledge token as a reward, on the contrary, the successful node and its supporters will get platform token as a reward.
+
+5. Application scenarios are more multi-source: in addition to price feeding services, it can also be applied to forecasting, games, etc., building a bridge between real data and the on-chain world.
+
+6. The official prediction platform will be built in the prediction application: a decentralized platform of cross chain + community governance. The details are described in the basic architecture below.
+
+### 1. Overview
+
+Build a decentralized prediction platform of cross chain + community governance based on PolkaOracle.
+
+### 2. Detailed introduction of business flow chart
+
+![img](https://raw.githubusercontent.com/PolkaOracle/images/master/polkaoracle_business01.jpg)
+
+![img](https://raw.githubusercontent.com/PolkaOracle/images/master/polkaoracle_business02.jpg)
+
+1. Prediction initiation and participation
+
+    - We will enable a forum like field which has three parts: proposal area, alternative proposal area and formal prediction area.
+
+    - After users' wallets are connected to the platform, they can initiate proposals in the initial proposal area, and they can also ‘like’ other proposals.
+
+    - The user's proposal needs to follow a certain format, such as setting the title, options, voting currency, voting cycle and end time, and explain why the voting result can not be easily manipulated and can be obtained at the end time, so as to win the support of other users.
+
+    - Users ‘likes’ in the proposal area, the nodes with more likes will enter the alternative proposal area
+
+    - The initial decision is made by the administrator to decide whether it can be entering the official prediction area. In later stage, it is decided by the community governance committee / governance token voting.
+
+    - Enter the voting period and wait for the result after votes end. 
+
+    - After the result comes out, the proposal user uploads the result to the oracle. The result has a period of publicity. If users object, they can sue and then the whole network users will vote again. The result with more votes will be the final result.
+
+2. Result Liquidation
+
+    - In the liquidation stage, the successful prediction user gets the corresponding voting token of the failed prediction user, a certain proportion as the platform gas fee.
+
+    - Distribution of platform transaction fee includes the following three ways:
+
+        - Prediction Leaderboard Award: It will accumulate periodically. The initial period is 7 days, and the later period can be decided by the user's vote.
+
+            - The winning rate ranking is sorted by the predicted winning rate (the basic limit is that users must participate in at least four predictions). The top 10% users with the highest winning rate are weighted and shared according to their winning rate. For example, the winning rate of user a is 90%, that of user B is 85%, and that of user C is 80%. Then user a gets the bonus of the winning rate ranking*（90%/(90%+85%+80%)）
+
+            - Participation ranking: ranked by the number of participating fields, and the top 10% users with the highest number of participating fields are weighted according to the number of participating fields;
+
+            - Comprehensive ranking: ranked by the results of the number of participating Games * winning rate, the top 10% users with the highest comprehensive scores are weighted and shared according to their comprehensive scores. 
+
+        - Lucky Draw Rewards for Prediction Participants.
+
+            Accumulate periodically. Each user has a 1% chance to get 1% of the reward at the beginning of voting. This parameter will be modified by community voting later.
+
+        - Technology development / maintenance costs
+
+            Expenses for technical team development / maintenance.
+
+    - User Income
+
+        - Reward for correct prediction
+        
+            The majority of the proportion of reward to the successful, and the voting mining awards are shared according to the respective voting proportion of the successful users. The rewards are from the corresponding voting token of the users who have failed to predict
+        
+        - Vote mining award
+
+            Users can get a certain number of airdrop governance tokens by voting mining.
+
+        - Liquidity mining award
+
+            users can use LP token to mine after providing liquidity support for transactions related to governance token on DEX,
+
+        - Forecast leaderboard award
+
+        - Invite airdrop award
+
+            After the invited users participate in the prediction voting successfully, level 1 will get a% airdrop token award, and level 2 will get B% airdrop award. For example, a = 5, B = 3, and suppose that Bob invites Alice to vote, and Alice spends 100 platform currency to participate in the voting, then Bob gets 5 platform currency. Only when users votes with platform currency.
+
+        - Reward for lucky participant of prediction
+
+            Each user has a 1% chance to get 1% of the reward at the beginning of voting.
 
 ### Development Tools
 
@@ -164,80 +282,51 @@ The lightweight PolkaOracle interface that can be deployed on multiple chains pr
 * [Changyou Ye](https://www.linkedin.com/in/chang-you-ye-598242200/)
 * [Jing Zheng](https://www.linkedin.com/in/jing-zheng-42324a200/)
 
-## Legal Structure
+## Milestones
 
-The legal structure of the PolkaOracle Foundation is set up and incorporated in British Virgin Islands. 
+Three milestones are to be realized in a total time frame of 6 months. Total cost is to be 3 BTC.
 
-## Development Roadmap
+### Q2
 
-### Overview
-* **Total Estimated Duration:** 3 months
-* **Full-time equivalent (FTE):**  3 FTE
-* **Total Costs:** 1.5 BTC
+1. OCW: after screening, verifying and comparing the data, submit it to the transaction pool
+2. Cross link: submit cross link data to network through OCW
+3. XCMP: other chains in Polka network can get our data
 
-There will be 3 milestones with each milestone lasting for one month. PolkaOracle Data Infrastructure will be a 3-month project: 
+### Q3
 
-### M1: Descriptions of the whole system structure and design
+1. On-chain data analysis: logic of user defined data analysis and classification
+2. Data conversion field: after filtering and confirmation, the data can be traded
+3. Smart contract: using smart contract to use data more conveniently and quickly
+4. Data submission: initiate proposals and submit data
+5. Token: staking, reward, etc
+6. Governance: participate in Polka Oracle Network Governance
 
-* **Estimated Duration:** 1 month
-* **FTE:**  2 FTE
-* **Costs:** 0.5 BTC
+### Q4
 
-Complete the development of data source layer, off-chain workers and on-chain infrastructure
-
-|Number|Deliverable|Specification|
-|:-:|:-:|:-:|
-|0a.|License|Apache License 2.0|
-|0b.|Documentation|Description document of architecture and design|
-|0c.|Testing Guide|We will provide complete test suite and operation guide|
-|1|Data source layer|The Data Source Layer is the bottom layer of the entire oracle system|
-|2|OCW|Off-chain Workers is a new feature in Substrate 2.0, allowing developers to integrate data safely and securely onto the blockchain applications|
-|3|On-chain Infrastructure|The On-chain Infrastructure is responsible for the fully-deterministic and transparent on-chain logic which is processed by the entire network with a slower speed|
-
-### M2: Database, feeding modules, data analysis samples
-
-* **Estimated Duration:** 1 month
-* **FTE:**  3 FTE
-* **Costs:** 0.5 BTC
-
-supported and implemented by Polkadot, provides multiple data sources with high timeliness and works with off-chain workers and verifies the integrity and validity of the data provided by the oracle node
-
-|Number|Deliverable|Specification|
-|:-:|:-:|:-:|
-|1|data analytics|data discovery, analysis, and analysis tools designed for DW, and can also provide queries or APIs for Dapps or external tools|
-|2|Oracle Node|Better ensure the security and accuracy of external data on-chain|
-|3|data Marketplace|data market, open platform. Dapps on polkadot can easily obtain off-chain data|
-|4|token POT|network token|
-
-### M3: Publishing of whole Test set and developer guide
-
-* **Estimated Duration:** 1 month
-* **FTE:**  2 FTE
-* **Costs:** 0.5 BTC
-
-|Number|Deliverable|Specification|
-|:-:|:-:|:-:|
-|1|Request|Data requester, call PolkaOracle in any way|
-|2|Data warehouse|distributed data repository, stores historical queries, verifications, etc., which can be read by any data requester|
-|3|Miner|oracle Node processing requests from off-chain data sources|
-|4|Arbitrator|Verify data integrity and timeliness provided by oracle Node|
-|5|Validator|Built on the network established by Substrate, allows oracle node to broadcast proofs, supports the validity of Arbitrator mining values|
+1. Forecast proposal: initiate proposal
+2. Voting screening: select the proposal to enter the prediction area
+3. Results collection: results publicity period
+4. Liquidation: reward and punishment according to voting ratio
 
 ## Future Development Plans
 
-With the recent rapid development of DeFi, it is foreseeable that the blockchain will explode on a large scale in the future. In order to effectively respond to future market demands, PolkaOracle will strengthen its capability from the following aspects:
+What do we expect from the future of Polkadot oracle?
 
-### Privacy Protection Technology 
+### Future technology development
 
-As the application fields of the oracle continue to expand, more applications in the future will place stricter requirements on privacy protection. Therefore, PolkaOracle will concentrate its development efforts on research and development of private protection technologies including homomorphic encryption technology, secure multi-party computation (MPC) technology and zero-knowledge proof.
+With the recent rapid development of DeFi, it is foreseeable that the blockchain will massively prosper in the future. In order to effectively respond to future market demand, Polkadot oracle will strengthen its own capacity building in the following aspects:
 
-### Unstructured Data Support 
+### L2 solution
 
-Up to now, oracle projects on the market are mainly designed for structured data, such as market price data. However, in the real business environment, the demand for unstructured data is also a huge market demand. Therefore, PolkaOracle will study the collection, processing and verification technology of unstructured data in advance to gain a leading competitive advantage.
+Due to the inherent limitations of the blockchain system architecture, the L2 solution will play a key role in future data processing, privacy protection and diversity. Therefore, PolkaOracle will actively research leading L2 technologies such as ZK-rollup technology to ensure that the entire oracle system can always meet the diverse and specialized requirements of the application layer.
 
-### Self-evolution Mechanism 
+### Privacy protection technology
 
-PolkaOracle aims to create a flexible self-evolving system possessing true self-evolution and self-organization capabilities. Therefore, we will actively cooperate with the world’s leading technology companies and universities to conduct extensive research on the combination of blockchain and self-evolving technologies including neural networks.
+As the requirements for privacy protection in the oracle application field become more and more stringent, oracle will continue to expand in the future application field. Therefore, PolkaOracle will focus on research and development of private protection technologies, including homomorphic encryption technology, secure multi-party computing (MPC) technology and zero-knowledge proof.
+
+### Unstructured data support
+
+As of now, oracle projects on the market are mainly designed for structured data, such as market price data. However, the market demand for unstructured data is also huge in the real business environment. Therefore, PolkaOracle will research unstructured data collection, processing and verification technologies in advance to gain a leading competitive advantage.
 
 ## Additional Information
 
