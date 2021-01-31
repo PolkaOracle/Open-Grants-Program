@@ -282,31 +282,56 @@ The lightweight PolkaOracle interface that can be deployed on multiple chains pr
 * [Changyou Ye](https://www.linkedin.com/in/chang-you-ye-598242200/)
 * [Jing Zheng](https://www.linkedin.com/in/jing-zheng-42324a200/)
 
-## Milestones
+## Development Roadmap :nut_and_bolt:
 
-Three milestones are to be realized in a total time frame of 6 months. Total cost is to be 3 BTC.
+### Overview
 
-### Q2
+- **Total Estimated Duration:** 6 month
+- **Full-time equivalent (FTE):** 10 FTE tech team for the busiest periods
+- **Total Costs:** 0.5 BTC
 
-1. OCW: after screening, verifying and comparing the data, submit it to the transaction pool
-2. Cross link: submit cross link data to network through OCW
-3. XCMP: other chains in Polka network can get our data
+### Milestone 1 — Implement functional economics model on Substrate.
 
-### Q3
+* **Estimated Duration:** 2 months
+* **Full-time Equivalent (FTE)**: 10
+* **Costs:** 0.15 BTC
 
-1. On-chain data analysis: logic of user defined data analysis and classification
-2. Data conversion field: after filtering and confirmation, the data can be traded
-3. Smart contract: using smart contract to use data more conveniently and quickly
-4. Data submission: initiate proposals and submit data
-5. Token: staking, reward, etc
-6. Governance: participate in Polka Oracle Network Governance
+|Number|Deliverable|Specification|
+|:-:|:-:|:-:|
+|0a.|License|Apache License 2.0|
+|0b.|Documentation|network整个体系结构完整设计描述的文档，将用作公共协议概述的基础|
+|0c.|Testing Guide|测试覆盖率为100%(单元测试和集成测试)。测试涵盖所有用例：数据采集、投票、预测、清算等|
+|1|OCW|筛选、验证、比对数据后提交到交易池中|
+|2|跨链|通过OCW将跨链数据提交到network中|
+|3|XCMP|polka网络中的其他链可以获取我们的数据|
 
-### Q4
+### Milestone 2 — Implement functional economics model on Substrate.
 
-1. Forecast proposal: initiate proposal
-2. Voting screening: select the proposal to enter the prediction area
-3. Results collection: results publicity period
-4. Liquidation: reward and punishment according to voting ratio
+* **Estimated Duration:** 2 months
+* **Full-time Equivalent (FTE)**: 10
+* **Costs:** 0.15 BTC  
+
+|Number|Deliverable|Specification|
+|:-:|:-:|:-:|
+|1|链上数据分析|自定义数据分析、分类的逻辑|
+|2|数据转换领域|筛选确认后的数据可以进行交易|
+|3|智能合约|使用智能合约更便利快捷的使用数据|
+|4|数据提交|发起提案并提交数据|
+|5|通证|质押、奖励等|
+|6|治理|参与polkaoracle network的治理|
+
+### Milestone 3 — Implement functional economics model on Substrate.
+
+* **Estimated Duration:** 2 months
+* **Full-time Equivalent (FTE)**: 10
+* **Costs:** 0.2 BTC
+
+|Number|Deliverable|Specification|
+|:-:|:-:|:-:|
+|1|预测提案|发起提案|
+|2|投票筛选|选择提案进入预测区|
+|3|结果采集|结果公示期|
+|4|清算|按投票比率进行奖惩|
 
 ## Future Development Plans
 
