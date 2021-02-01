@@ -299,11 +299,11 @@ The lightweight PolkaOracle interface that can be deployed on multiple chains pr
 |Number|Deliverable|Specification|
 |:-:|:-:|:-:|
 |0a.|License|Apache License 2.0|
-|0b.|Documentation|network整个体系结构完整设计描述的文档，将用作公共协议概述的基础|
-|0c.|Testing Guide|测试覆盖率为100%(单元测试和集成测试)。测试涵盖所有用例：数据采集、投票、预测、清算等|
-|1|OCW|筛选、验证、比对数据后提交到交易池中|
-|2|跨链|通过OCW将跨链数据提交到network中|
-|3|XCMP|polka网络中的其他链可以获取我们的数据|
+|0b.|Documentation|The documentation of the entire architecture description will serve as the basis for a public protocol overview|
+|0c.|Testing Guide|Test coverage is 100% (unit test and integration test). The test covers all cases: data collection, voting, prediction, liquidation etc|
+|1|OCW|After screening, verifying and comparing the data, the data will be submitted to the transaction pool|
+|2|cross chain|Submit cross chain data to network through OCW|
+|3|XCMP|Other parachain in the polka network can have access to our data|
 
 ### Milestone 2 — Implement functional economics model on Substrate.
 
@@ -313,12 +313,12 @@ The lightweight PolkaOracle interface that can be deployed on multiple chains pr
 
 |Number|Deliverable|Specification|
 |:-:|:-:|:-:|
-|1|链上数据分析|自定义数据分析、分类的逻辑|
-|2|数据转换领域|筛选确认后的数据可以进行交易|
-|3|智能合约|使用智能合约更便利快捷的使用数据|
-|4|数据提交|发起提案并提交数据|
-|5|通证|质押、奖励等|
-|6|治理|参与polkaoracle network的治理|
+|1|On-chain data analysis|Custom data analysis, logic of classification |
+|2|Data transformation field|After the data is filtered and confirmed, the transaction can be carried out|
+|3|Smart contract|More convenient and quick data access through smart contract|
+|4|Data submission|Initiate proposals and submit data|
+|5|Token|Staking, reward etc|
+|6|Governance|Participate in the governance of polkaoracle network|
 
 ### Milestone 3 — Implement functional economics model on Substrate.
 
@@ -328,10 +328,10 @@ The lightweight PolkaOracle interface that can be deployed on multiple chains pr
 
 |Number|Deliverable|Specification|
 |:-:|:-:|:-:|
-|1|预测提案|发起提案|
-|2|投票筛选|选择提案进入预测区|
-|3|结果采集|结果公示期|
-|4|清算|按投票比率进行奖惩|
+|1|Forecast proposal| Initiate a proposal|
+|2|Vote Filtering| Select the proposal to enter the official prediction area|
+|3|Results collection|Results publicity period|
+|4|Liquidation|Reward-punishment is based on voting results|
 
 ## Future Development Plans
 
